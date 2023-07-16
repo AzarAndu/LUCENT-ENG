@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mild Steel Square Tube Weight Calculator</title>
+    <title>Rectangle Steel Tube Weight Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            color: #333;
         }
 
         label {
             display: block;
             margin-bottom: 5px;
+            color: #333;
         }
 
         input[type="number"] {
@@ -20,19 +26,27 @@
 
         button {
             padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
         }
 
         #result {
             margin-top: 20px;
             font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1>Mild Steel Square Tube Weight Calculator</h1>
+    <h1>Rectangle Steel Tube Weight Calculator</h1>
     <form id="calculatorForm">
-        <label for="sideLength">Side Length (mm):</label>
-        <input type="number" id="sideLength" required>
+        <label for="length">Length (mm):</label>
+        <input type="number" id="length" required>
+
+        <label for="width">Width (mm):</label>
+        <input type="number" id="width" required>
 
         <label for="wallThickness">Wall Thickness (mm):</label>
         <input type="number" id="wallThickness" required>
@@ -47,11 +61,12 @@
             event.preventDefault(); // Prevent form submission
             
             // Get user input values
-            var sideLength = parseFloat(document.getElementById("sideLength").value);
+            var length = parseFloat(document.getElementById("length").value);
+            var width = parseFloat(document.getElementById("width").value);
             var wallThickness = parseFloat(document.getElementById("wallThickness").value);
             
             // Perform weight calculation
-            var volume = sideLength * sideLength * wallThickness;
+            var volume = length * width * wallThickness;
             var weight = volume * 0.00785; // Assuming density of mild steel as 7.85 g/cm³
             
             // Display the result
